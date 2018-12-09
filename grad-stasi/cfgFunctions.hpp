@@ -4,6 +4,8 @@ class GRAD_landline {
         file = grad-stasi\functions\client\;
 
         class actions;
+        class checkVehicleForTracker;
+        class checkVehicleResult;
         class shotgunMic;
     };
     
