@@ -1,5 +1,8 @@
 enableDebugConsole = 1;
 
+#define MODULES_DIRECTORY node_modules
+
 class cfgFunctions {
-    #include "grad-gpsTracker\cfgFunctions.hpp"
+    #include "node_modules\grad-gpsTracker\cfgFunctions.hpp"
+    #include "grad-stasi\cfgFunctions.hpp"
 };

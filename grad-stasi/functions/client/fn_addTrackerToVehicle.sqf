@@ -24,6 +24,6 @@ params ["_vehicle", "_unit"];
 	hint "Aborted adding device";
 }, 
 	"Attaching tracking device to vehicle", 
-	true, 
+	{true}, 
 	["isNotSwimming", "isNotInside", "notOnMap", "isNotSitting"]
 ] call ace_common_fnc_progressBar;

@@ -1,0 +1,203 @@
+version=53;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=11;
+	};
+	class Camera
+	{
+		pos[]={2475.8169,10.667652,5304.0044};
+		dir[]={-0.22199987,-0.39270532,-0.89247406};
+		up[]={-0.094795123,0.91966027,-0.38109267};
+		aside[]={-0.97043252,7.5648131e-008,0.24139157};
+	};
+};
+binarizationWanted=0;
+addons[]=
+{
+	"rds_A2_Civilians",
+	"rds_a2port_cman",
+	"A3_Structures_F_Heli_Civ_Constructions"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=3;
+		class Item0
+		{
+			className="rds_A2_Civilians";
+			name="RDS Civilian Pack Cars";
+			author="reyhard";
+			url="https://forums.bistudio.com/topic/170165-rds-a2-civilian-pack/";
+		};
+		class Item1
+		{
+			className="rds_a2port_cman";
+			name="RDS Civilian Pack Characters";
+			author="reyhard";
+			url="https://forums.bistudio.com/topic/170165-rds-a2-civilian-pack/";
+		};
+		class Item2
+		{
+			className="A3_Structures_F_Heli";
+			name="Arma 3 Helicopters - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+	};
+};
+randomSeed=427380;
+class ScenarioData
+{
+	author="nomisum";
+};
+class Mission
+{
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		wavesForced=1;
+		windForced=1;
+		year=2035;
+		day=28;
+		hour=13;
+		minute=37;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=4;
+		class Item0
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2470.4314,6.6064458,5290.2148};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1;
+			type="RDS_JAWA353_Civ_01";
+		};
+		class Item1
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2455.4263,6.88307,5290.6299};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=6;
+			type="RDS_Zetor6945_Base";
+		};
+		class Item2
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2473.988,5.0014391,5294.0459};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						init="call{this setVariable [""GRAD_stasi_isStasi"", true];}";
+						isPlayer=1;
+					};
+					id=9;
+					type="RDS_Assistant";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="RHS_Male04RUS";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=8;
+		};
+		class Item3
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2465.761,5.6955671,5294.2026};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=10;
+			type="Land_WeldingTrolley_01_F";
+		};
+	};
+};

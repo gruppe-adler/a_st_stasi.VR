@@ -30,7 +30,8 @@ player addAction [
 player addAction [
     "Richtmikrofon AN",
     {
-         [] call GRAD_stasi_fnc_shotgunMic;
+        params ["_target", "_caller", "_actionId", "_arguments"];
+        [_caller] call GRAD_stasi_fnc_shotgunMic;
     },
     [],1.5,true,true,"",
     "!(player getVariable ['GRAD_shotgunMicActive', false])"
@@ -39,28 +40,31 @@ player addAction [
 
 
 // tracking device
-player addAction [
-    "Add tracking device to vehicle",
-    {
-    	params ["_target", "_caller", "_actionId", "_arguments"];
-        [_target, _caller] call GRAD_stasi_fnc_addTrackerToVehicle;
-    },
-    [],1.5,true,true,"",
-    "player getVariable ['GRAD_stasi_isStasi', false] && {
-    	player getVariable ['GRAD_stasi_trackerCount', 0] > 0
-	}"
-];
+{
+    _x addAction [
+        "Add tracking device to vehicle",
+        {
+        	params ["_target", "_caller", "_actionId", "_arguments"];
+            [_target, _caller] call GRAD_stasi_fnc_addTrackerToVehicle;
+        },
+        [],1.5,true,true,"",
+        "player getVariable ['GRAD_stasi_isStasi', false] && {
+        	player getVariable ['GRAD_stasi_trackerCount', 0] > 0
+    	}"
+    ];
+} forEach vehicles;
 
-// remove tracker
-player addAction [
-    "Remove tracking device from vehicle",
-    {
-    	params ["_target", "_caller", "_actionId", "_arguments"];
-    	[_target, _caller] call GRAD_stasi_fnc_removeTrackerFromVehicle;
-    },
-    [],1.5,true,true,"",
-    "player getVariable ['GRAD_stasi_isStasi', false] && {
-    	player getVariable ['GRAD_stasi_trackerCount', 0] == 0 &&
-    	_target getVariable ['GRAD_stasi_trackerAttached', false]
-	}"
-];
+{
+    _x addAction [
+        "Remove tracking device from vehicle",
+        {
+        	params ["_target", "_caller", "_actionId", "_arguments"];
+        	[_target, _caller] call GRAD_stasi_fnc_removeTrackerFromVehicle;
+        },
+        [],1.5,true,true,"",
+        "player getVariable ['GRAD_stasi_isStasi', false] && {
+        	player getVariable ['GRAD_stasi_trackerCount', 0] == 0 &&
+        	_target getVariable ['GRAD_stasi_trackerAttached', false]
+    	}"
+    ];
+} forEach vehicles;

@@ -1,9 +1,9 @@
-class GRAD_landline {
+class GRAD_stasi {
 
     class client_actions {
-        file = grad-stasi\functions\client\;
+        file = grad-stasi\functions\client;
 
-        class actions;
+        class actions { postInit = 1;};
         class addTrackerToVehicle;
         class checkVehicleForTracker;
         class checkVehicleResult;
