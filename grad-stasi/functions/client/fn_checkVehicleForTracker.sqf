@@ -10,10 +10,13 @@ private _chanceForSuccess = if (isNull (nearestObject [position player, _workSho
 	0.7
 };
 
-private _isRevealed = _vehicle getVariable ["GRAD_stasi_trackerRevealed", false];
 
+// if tracker was already found but player decided to let it stick, next search is shorter
+private _isRevealed = _vehicle getVariable ["GRAD_stasi_trackerRevealed", false];
 private _timeToSearch = if (_isRevealed) then { 5 } else { 60 };
 
+
+// progressbar
 [_timeToSearch, [_vehicle, _chanceForSuccess], {
 	params ["_vehicle", "_chanceForSuccess"];
 
@@ -21,4 +24,8 @@ private _timeToSearch = if (_isRevealed) then { 5 } else { 60 };
 
 }, {
 	hint "Aborted checking Vehicle";
-}, "Checking Vehicle for Tracking Devices", true, ["isNotSwimming", "isNotInside", "notOnMap", "isNotSitting"]] call ace_common_fnc_progressBar;
+}, 
+	"Checking Vehicle for Tracking Devices", 
+	true, 
+	["isNotSwimming", "isNotInside", "notOnMap", "isNotSitting"]
+] call ace_common_fnc_progressBar;
