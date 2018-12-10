@@ -38,7 +38,7 @@ private _debugObject = createSimpleObject ["Sign_Sphere10cm_F", AGLtoASL (positi
 	};
 
 	// reduce volume with distance
-	player setVariable ["tf_globalVolume", 1-(player distance _earDropTarget/150)];
+	player setVariable ["tf_globalVolume", 1-((player distance _earDropTarget)/150)];
 
 	systemChat str _earDropTarget;
 
