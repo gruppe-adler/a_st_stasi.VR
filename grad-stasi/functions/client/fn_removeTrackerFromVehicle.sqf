@@ -2,7 +2,8 @@ params ["_vehicle", "_unit"];
 
 
 [5, [_vehicle, _unit], {
-	params ["_vehicle", "_unit"];
+    params ["_args"];
+	_args params ["_vehicle", "_unit"];
 
 	_vehicle setVariable ['GRAD_stasi_trackerAttached', false, true];
 

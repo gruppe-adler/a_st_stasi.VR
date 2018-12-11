@@ -18,8 +18,10 @@ private _timeToSearch = if (_isRevealed) then { 5 } else { 60 };
 
 // progressbar
 [_timeToSearch, [_vehicle, _chanceForSuccess], {
-	params ["_vehicle", "_chanceForSuccess"];
+    params ["_args"];
+	_args params ["_vehicle", "_chanceForSuccess"];
 
+    systemChat ("chance for success: " + str _chanceForSuccess + " %");
 	[_vehicle, _chanceForSuccess, _isRevealed] call GRAD_stasi_fnc_checkVehicleResult;
 
 }, {
