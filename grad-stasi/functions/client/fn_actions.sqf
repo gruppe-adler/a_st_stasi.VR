@@ -1,17 +1,16 @@
 
-if (!(player getVariable ["GRAD_stasi_isStasi", false])) exitWith {
+private _checkForDevices = ["grad_stasi_checkForDevices", "Check Vehicle for strange Devices", "", 
+{
+    [_target] call GRAD_stasi_fnc_checkVehicleForTracker;
+}, 
+{
+    !(player getVariable ['GRAD_stasi_isStasi', false])
+}] call ace_interact_menu_fnc_createAction;
 
-	// tracker on vehicle
-	player addAction [
-	    "Check Vehicle for strange Devices",
-	    {
-	    	params ["_target", "_caller", "_actionId", "_arguments"];
-	        [_target] call GRAD_stasi_fnc_checkVehicleForTracker;
-	    },
-	    [],1.5,true,true,"",
-	    "!(player getVariable ['GRAD_stasi_isStasi', false])"
-	];
-};
+{
+    [_x, 0, ["ACE_MainActions"], _checkForDevices] call ace_interact_menu_fnc_addActionToObject;
+} forEach vehicles;
+
 
 // define tracker count
 player setVariable ['GRAD_stasi_trackerCount', 1];

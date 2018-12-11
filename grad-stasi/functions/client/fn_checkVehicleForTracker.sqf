@@ -15,7 +15,7 @@ private _chanceForSuccess = if (isNull (nearestObject [position player, _workSho
 private _isRevealed = _vehicle getVariable ["GRAD_stasi_trackerRevealed", false];
 private _timeToSearch = if (_isRevealed) then { GRAD_STASI_CHECKTRACKER_FAST } else { GRAD_STASI_CHECKTRACKER_SLOW };
 
-systemChat ("chance for success: " + str _chanceForSuccess + " %");
+
 
 // progressbar
 [_timeToSearch, [_vehicle, _chanceForSuccess, _isRevealed], {
