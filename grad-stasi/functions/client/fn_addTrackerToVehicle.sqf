@@ -4,8 +4,7 @@ params ["_vehicle", "_unit"];
 [
 		5, 
 		[_vehicle, _unit], {
-				_this params ["_args"];
-				_args params ["_vehicle", "_unit"];
+				params ["_vehicle", "_unit"];
 
 				
 				[_vehicle,3,1,1,1,{
