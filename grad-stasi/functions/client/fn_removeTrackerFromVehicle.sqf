@@ -2,7 +2,8 @@ params ["_vehicle", "_unit"];
 
 
 [5, [_vehicle, _unit], {
-	params ["_vehicle", "_unit"];
+    _this params ["_args"];
+	_args params ["_vehicle", "_unit"];
 
 	_vehicle setVariable ['GRAD_stasi_trackerAttached', false, true];
 
@@ -15,6 +16,6 @@ params ["_vehicle", "_unit"];
 	hint "Aborted removing device";
 }, 
 	"Removing tracking device", 
-	true, 
+	{true}, 
 	["isNotSwimming", "isNotInside", "notOnMap", "isNotSitting"]
 ] call ace_common_fnc_progressBar;

@@ -7,6 +7,7 @@ class GRAD_stasi {
         class addTrackerToVehicle;
         class checkVehicleForTracker;
         class checkVehicleResult;
+        class initValues { preInit = 1; };
         class removeTrackerFromVehicle;
         class shotgunMic;
     };
