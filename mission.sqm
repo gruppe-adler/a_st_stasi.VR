@@ -8,14 +8,14 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=15;
+		nextID=29;
 	};
 	class Camera
 	{
-		pos[]={2470.4919,8.3777952,5298.7578};
-		dir[]={0.57375938,-0.40370917,-0.71272564};
-		up[]={0.25319263,0.91484231,-0.3145141};
-		aside[]={-0.77901655,-1.1455268e-007,-0.62713236};
+		pos[]={2475.9243,9.5574465,5299.8877};
+		dir[]={-0.28956762,-0.40923405,-0.86536014};
+		up[]={-0.12987697,0.91238183,-0.38813612};
+		aside[]={-0.94840103,1.2622331e-007,0.31735027};
 	};
 };
 binarizationWanted=0;
@@ -25,13 +25,15 @@ addons[]=
 	"rds_a2port_cman",
 	"A3_Structures_F_Heli_Civ_Constructions",
 	"CUP_Misc_e_Config",
-	"A3_Structures_F_Heli_Items_Electronics"
+	"A3_Structures_F_Heli_Items_Electronics",
+	"A3_Characters_F",
+	"A3_Characters_F_Orange"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=4;
+		items=6;
 		class Item0
 		{
 			className="rds_A2_Civilians";
@@ -57,6 +59,20 @@ class AddonsMetaData
 		{
 			className="CUP_Misc_e_Config";
 			name="CUP_Misc_e_Config";
+		};
+		class Item4
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item5
+		{
+			className="A3_Characters_F_Orange";
+			name="Arma 3 Orange - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 	};
 };
@@ -88,13 +104,13 @@ class Mission
 	};
 	class Entities
 	{
-		items=6;
+		items=10;
 		class Item0
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2470.4314,6.6064458,5290.2148};
+				position[]={2468.166,6.6064458,5290.4341};
 			};
 			side="Empty";
 			flags=4;
@@ -138,6 +154,7 @@ class Mission
 					class Attributes
 					{
 						init="call{this setVariable [""GRAD_stasi_isStasi"", true];}";
+						description="stasi";
 						isPlayer=1;
 					};
 					id=9;
@@ -227,7 +244,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={2475.4155,5.0370998,5293.6353};
-				angles[]={-0,3.1566832,0};
+				angles[]={0,3.1566832,0};
 			};
 			side="Empty";
 			flags=4;
@@ -236,6 +253,208 @@ class Mission
 			};
 			id=12;
 			type="Land_Camera_01_F";
+		};
+		class Item6
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2471.9451,5.0014391,5284.5376};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=16;
+					type="C_man_polo_6_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male04GRE";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=15;
+		};
+		class Item7
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2469.5486,5.0014391,5284.7129};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=24;
+					type="C_Man_ConstructionWorker_01_Black_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=23;
+		};
+		class Item8
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2468.0432,5.0014391,5286.4419};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=26;
+					type="C_Man_UtilityWorker_01_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=25;
+		};
+		class Item9
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2473.99,5.0014391,5286.1367};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						init="call{this setVariable [""GRAD_stasi_isStasi"", true];}";
+						description="stasi";
+						isPlayable=1;
+					};
+					id=28;
+					type="RDS_Functionary1";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="RHS_Male03RUS";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.03;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=27;
 		};
 	};
 };

@@ -17,12 +17,12 @@ private _debugObject = createSimpleObject ["Sign_Sphere10cm_F", AGLtoASL (positi
 		deleteVehicle _debugObject;
 
 		// reset volume
-		player setVariable ["tf_globalVolume", 1];
+		// player setVariable ["tf_globalVolume", 1];
 	};
 
 	// max range 150
 	private _humanEye = positionCameraToWorld [0,0,0];
-	private _aimVector = ((getCameraViewDirection player) vectorMultiply 150);
+	private _aimVector = ((getCameraViewDirection player) vectorMultiply 50);
 	private _eyeTargetInRange = _humanEye vectorAdd _aimVector;
 
 
@@ -32,13 +32,19 @@ private _debugObject = createSimpleObject ["Sign_Sphere10cm_F", AGLtoASL (positi
 
 	if (count _earDropTarget < 1) then {
 		_earDropTarget = _eyeTargetInRange;
+		if (_earDropTarget select 2 < 1) then {
+			_earDropTarget set [2,1];
+		};
 		systemChat "out of range, limiting distance to 50";
 	} else {
 		_earDropTarget = ASLtoAGL (_earDropTarget select 0 select 0);
+		if (_earDropTarget select 2 < 1) then {
+			_earDropTarget set [2,1];
+		};
 	};
 
 	// reduce volume with distance
-	player setVariable ["tf_globalVolume", 1-((player distance _earDropTarget)/150)];
+	// player setVariable ["tf_globalVolume", 1-((player distance _earDropTarget)/50)];
 
 	systemChat str _earDropTarget;
 

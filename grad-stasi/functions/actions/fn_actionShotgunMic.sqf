@@ -12,7 +12,7 @@ private _shotgunMicOn = ["grad_stasi_shotgunMicOn", "Richtmikrofon AN", "",
 
 
 // DEACTIVATE SHOTGUN MIC
-private _shotgunMicOff = ["grad_stasi_shotgunMicOff", "Richtmikrofon AN", "", 
+private _shotgunMicOff = ["grad_stasi_shotgunMicOff", "Richtmikrofon AUS", "", 
 {
    	player setVariable ['GRAD_shotgunMicActive', false];
 }, 
