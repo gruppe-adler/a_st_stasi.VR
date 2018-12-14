@@ -29,7 +29,7 @@ private _debugObject = createSimpleObject ["Sign_Sphere10cm_F", AGLtoASL (positi
 
 
 	private _objectTarget =  lineIntersectsSurfaces [
-		eyePos player, _eyeTargetInRange, player];
+		AGLtoASL _humanEyer, AGLtoASL _eyeTargetInRange, player];
 
 	private _isObjectTarget = count _objectTarget > 0;
 
