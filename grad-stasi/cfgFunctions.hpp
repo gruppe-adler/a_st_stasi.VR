@@ -14,7 +14,9 @@ class GRAD_stasi {
         class addTrackerToVehicle;
         class checkVehicleForTracker;
         class checkVehicleResult;
+        class createShotgunMicInterface;
         class initValues { preInit = 1; };
+        class interpretMouseWheel;
         class removeTrackerFromVehicle;
         class shotgunMic;
     };

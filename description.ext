@@ -6,3 +6,7 @@ class cfgFunctions {
     #include "node_modules\grad-gpsTracker\cfgFunctions.hpp"
     #include "grad-stasi\cfgFunctions.hpp"
 };
+
+class cfgSounds {
+    #include "grad-stasi\cfgSounds.hpp"
+};

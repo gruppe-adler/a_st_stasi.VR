@@ -12,10 +12,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2475.9243,9.5574465,5299.8877};
-		dir[]={-0.28956762,-0.40923405,-0.86536014};
-		up[]={-0.12987697,0.91238183,-0.38813612};
-		aside[]={-0.94840103,1.2622331e-007,0.31735027};
+		pos[]={2476.4636,7.2598948,5296.6514};
+		dir[]={-0.70460683,-0.30580983,-0.64045686};
+		up[]={-0.2263488,0.95204556,-0.20574309};
+		aside[]={-0.67268282,4.0220038e-007,0.74005586};
 	};
 };
 binarizationWanted=0;
@@ -23,6 +23,8 @@ addons[]=
 {
 	"rds_A2_Civilians",
 	"rds_a2port_cman",
+	"rhsgref_c_weapons",
+	"A3_Weapons_F",
 	"A3_Structures_F_Heli_Civ_Constructions",
 	"CUP_Misc_e_Config",
 	"A3_Structures_F_Heli_Items_Electronics",
@@ -33,7 +35,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=8;
 		class Item0
 		{
 			className="rds_A2_Civilians";
@@ -50,24 +52,38 @@ class AddonsMetaData
 		};
 		class Item2
 		{
+			className="rhsgref_c_weapons";
+			name="GREF Weapons";
+			author="Red Hammer Studios";
+			url="http://www.rhsmods.org/";
+		};
+		class Item3
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
 			className="A3_Structures_F_Heli";
 			name="Arma 3 Helicopters - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
+		class Item5
 		{
 			className="CUP_Misc_e_Config";
 			name="CUP_Misc_e_Config";
 		};
-		class Item4
+		class Item6
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item7
 		{
 			className="A3_Characters_F_Orange";
 			name="Arma 3 Orange - Characters and Clothing";
@@ -156,6 +172,27 @@ class Mission
 						init="call{this setVariable [""GRAD_stasi_isStasi"", true];}";
 						description="stasi";
 						isPlayer=1;
+						class Inventory
+						{
+							class secondaryWeapon
+							{
+								name="rhs_weap_panzerfaust60";
+								class primaryMuzzleMag
+								{
+									name="rhs_panzerfaust60_mag";
+									ammoLeft=1;
+								};
+							};
+							class uniform
+							{
+								typeName="rds_uniform_assistant";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+						};
 					};
 					id=9;
 					type="RDS_Assistant";
