@@ -13,7 +13,7 @@ private _debugObject = createSimpleObject ["Sign_Sphere10cm_F", AGLtoASL (positi
 
 	if (!(player getVariable ["GRAD_shotgunMicActive", false])) exitWith {
 		[_handle] call CBA_fnc_removePerFrameHandler;
-		_unit setVariable ["TF_fnc_position", nil];
+		_unit setVariable ["TF_fnc_position", TFAR_fnc_defaultPositionCoordinates];
 		deleteVehicle _debugObject;
 
 		// reset volume
@@ -22,7 +22,7 @@ private _debugObject = createSimpleObject ["Sign_Sphere10cm_F", AGLtoASL (positi
 
 	// max range 150
 	private _humanEye = positionCameraToWorld [0,0,0];
-	private _aimVector = (_humanEye vectorMultiply 50);
+	private _aimVector = ((getCameraViewDirection player) vectorMultiply 10);
 	private _eyeTargetInRange = _humanEye vectorAdd _aimVector;
 
 	private _earDropTarget = [0,0,0];
@@ -31,26 +31,16 @@ private _debugObject = createSimpleObject ["Sign_Sphere10cm_F", AGLtoASL (positi
 	private _objectTarget =  lineIntersectsSurfaces [
 		eyePos player, _eyeTargetInRange, player];
 
-	private _terrainTarget = terrainIntersectAtASL [
-		eyePos player, _eyeTargetInRange];
-
 	private _isObjectTarget = count _objectTarget > 0;
-	private _isTerrainTarget = count _terrainTarget > 0;
 
-	if (!_isObjectTarget && !_isTerrainTarget) then {
+	if (!_isObjectTarget) then {
 
 		_earDropTarget = _eyeTargetInRange;
-		if (_earDropTarget select 2 < 1) then {
-			_earDropTarget set [2,1];
-		};
-		systemChat "out of range, limiting distance to 50";
+		
+		systemChat "out of range, limiting distance to 10" + str _earDropTarget;
 	} else {
-
-		if (_isObjectTarget) then {
-			_earDropTarget = ASLtoAGL (_earDropTarget select 0 select 0);
-		} else {
-			_earDropTarget = ASLtoAGL (_terrainTarget select 0 select 0);
-		};
+		_earDropTarget = ASLtoAGL (_objectTarget select 0 select 0);
+		systemChat str _earDropTarget;
 	};
 
 	// reduce volume with distance

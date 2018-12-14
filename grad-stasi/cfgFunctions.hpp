@@ -1,5 +1,12 @@
 class GRAD_stasi {
 
+    class actions {
+        file = grad-stasi\functions\actions;
+
+        class actionShotgunMic;
+        class actionTrackingDevice;
+    };
+
     class client_actions {
         file = grad-stasi\functions\client;
 
